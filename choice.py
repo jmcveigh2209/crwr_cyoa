@@ -6,10 +6,22 @@ class Player:
     def __init__(self):
         self.worst_decision = 0
         self.people_killed = 0
+        self.humanity_meter = 8
         #insert more attributes if decided on parameters; certain choices could impact parameter values??
 
     def murder(self, num):
         self.people_killed += num
+        if num > 50:
+            self.humanity_meter -= 2
+        else:
+            self.humanity_meter -= 1
+        if self.humanity_meter < 0:
+            self.humanity_meter = 0
+
+    def do_good(self):
+        if self.humanity_meter < 10:
+            self.humanity_meter += 1
+        return self.humanity_meter
 
     def bad_choices(self, tag):
         self.worst_decision = tag

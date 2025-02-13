@@ -26,7 +26,7 @@ def user_choice():
 def main():
     player = Player()
     game_cont = True
-    pop_size = 8204160114
+    pop_size = 1000000000
     choices = init_list(5, data.texts, data.mags, data.options)
     curr_choice = 0
 
