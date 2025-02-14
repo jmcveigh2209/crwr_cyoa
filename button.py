@@ -4,7 +4,7 @@ from graphics import *
 
 # create Button class
 class Button:
-    def __init__(self, win, center, width, height, label, outlineColor='black'):
+    def __init__(self, win, center, width, height, label, txtColor = 'black', outlineColor='black'):
         'sets instance variables'
         self.window = win
         self.select = False
@@ -14,6 +14,7 @@ class Button:
         self.width = width
         self.height = height
         self.text = label
+        self.textColor = txtColor
         self.outlineColor = outlineColor
         'Calculate button coordinates'
         self.xll = self.centerX - (self.width/2)
@@ -66,7 +67,7 @@ class Button:
 
     def activate(self):
         'make button clickable'
-        self.label.setFill('white')
+        #self.label.setFill('white')
         self.active = True
 
     def setLabel(self, newText):

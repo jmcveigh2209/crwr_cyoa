@@ -18,7 +18,7 @@ class CrwrGUI:
     def open_opening(self):
         line1 = Text(Point(349, 365), "Welcome to")
         line1.setSize(36)
-        line1.setStyle('bold')
+        line1.setStyle('bold italic')
         line1.setTextColor('white')
         line1.setFace("courier")
         line1.draw(self.getWin())
@@ -28,25 +28,23 @@ class CrwrGUI:
         line2.setTextColor('white')
         line2.setFace("courier")
         line2.draw(self.getWin())
-        begin_button = Button(self.getWin(), Point(349, 130), 65, 30, "Begin", "white")
-        begin_button.setLabelColor('white')
-        begin_button.getLabel().setFace("courier")
-        begin_button.activate()
+        self.begin_button = Button(self.getWin(), Point(349, 130), 65, 30, "Begin", "white", "white")
+        self.begin_button.setLabelColor('white')
+        self.begin_button.getLabel().setFace("courier")
+        self.begin_button.activate()
+        self.active_comps.extend([line1, line2, self.begin_button])
 
-        self.active_comps.extend([line1, line2, begin_button])
+    #def prompt(self, text):
+
+    def close_curr(self):
+        'close current scene'
+        for obj in self.active_comps:
+            obj.undraw()
         
     def getWin(self):
         return self.win
 
     def killWin(self):
-        for obj in self.active_comps:
-            obj.undraw()
+        self.close_curr()
         self.win.close()
 
-
-def main():
-    gui = CrwrGUI()
-    if input("Type kill to kill: ") == "kill":
-        gui.killWin()
-
-main()

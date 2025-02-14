@@ -1,5 +1,6 @@
 import data
 from choice import Player, Choice
+from gui import CrwrGUI
 
 def init_list(length, texts, mags, options):
     choices = []
@@ -25,6 +26,7 @@ def user_choice():
 
 def main():
     player = Player()
+    gui = CrwrGUI()
     game_cont = True
     pop_size = 1000000000
     choices = init_list(5, data.texts, data.mags, data.options)
@@ -34,8 +36,22 @@ def main():
         if pop_size < 1:
             game_cont = False
         #other conditions for game to end early
-        run_choice(choices[curr_choice])
-        curr_choice = user_choice
+        click = gui.getWin().getMouse()
+        if gui.begin_button.clicked(click):
+            gui.close_curr()
+            if input("Type kill to kill: ") == "kill":
+                gui.killWin()
+            gui.prompt_scene()
+        elif gui.next_button.clicked(click):
+            gui.close_curr()
+            gui.choice_scene()
+        else:
+            for choice in gui.curr_choices():
+                if choice.button.clicked(click):
+                    gui.close_curr()
+                    #progress to next prompt scene
+
+main()
 
 
         
