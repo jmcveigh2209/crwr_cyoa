@@ -26,8 +26,6 @@ class Button:
         'Set label and outline of button'
         self.label = Text(self.center, self.text)
         self.button.setOutline(self.outlineColor)
-        self.button.draw(self.window)
-        self.label.draw(self.window)
         self.deactivate()
 
     def getWindow(self):
@@ -64,6 +62,10 @@ class Button:
             'otherwise not click'
             self.click = False
             return self.click
+
+    def draw(self, win):
+        self.button.draw(win)
+        self.label.draw(win)
 
     def activate(self):
         'make button clickable'

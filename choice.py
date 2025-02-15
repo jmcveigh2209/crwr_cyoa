@@ -33,19 +33,20 @@ class Player:
         return self.worst_decision, self.people_killed
 
 
- """
- Choice class parameters:
+"""
+Choice class parameters:
  - tag (int): number choice is referred to by; index in choice list
  - text (str): text displayed when choice is presented
  - magnitude (int): scale of 1-5 how 'bad' having made this choice is for your karma
  - options (list(tag)): choices this option presents; this leaf's children in the tree
- """   
+"""   
 class Choice:
-    def __init__(self, tag, text, magnitude, options):
+    def __init__(self, tag, text, magnitude, choices, unless):
         self.tag = tag
         self.text = text
         self.mag = magnitude
-        self.options = options #in numerical order
+        self.child_choices = choices #in numerical order
+        self.unless = unless
 
     def get_tag(self):
         return self.tag
@@ -56,9 +57,12 @@ class Choice:
     def get_text(self):
         return self.text
 
-    def get_options(self):
-        return self.options
+    def get_choices(self):
+        return self.child_choices
 
-    def get_option(self, num):
-        return self.options[num] #num can't be larger than max index of options
+    def get_choice(self, num):
+        if num <= len(self.child_choices):
+            return self.child_choices[num]
+        else:
+            print("Error: Invalid Choice")
 
