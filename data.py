@@ -1,9 +1,9 @@
-texts = ["You encounter a furry in an office environment.", 
-"Run away screaming\n• This may cause chaos",
-"Bark at it",
-"Pet its tail\n• It looks so soft!",
-"Pee dominantly\nagainst a\npotted plant",
+texts = ["Your journey begins deep underground. You have grown up with the moles, raised on mole milk, grubs, and, of course, books. \n Blind but cursed with knowledge, the librarians educated you better than any living on the surface. \n They always knew that you were special, and that you would have to leave. \n You stand before your blind mole mother. \n Not for the first time, you think of your biological mother, and wonder why she chose to lower you down a well all those years ago. \n Had she known the moles would be waiting below? You doubt it.\n 'How will do it?' The mole asks in its mole language. She fears for your life on up above. \n She wishes to be assured that you have a plan, a strategy as to how will navigate the surface, how you will tell the world of your coming. \n Indeed, your studies have shown you the way, and you know what you must do. You reply to your mole mother:", 
+"I will seek power. The friction within the UPRE \n and the war with the UN have opened holes in the world through which I can rise. \n The time to act is now, and with force. \n When the people see my truth, my guidance will lead them through these hard times. I can save many lives.",
+"I will seek peace, and bide my time down here. The state of the world is too \n tumultuous - the UPRE is in turmoil, and Prestes' presidency is in question. \n I will spread my truth through peace, \n even if the famine takes many lives first.",
+"I will seek knowledge. For someone like me, technology is the only way forward. \n When Trinity spoke, everyone listened. The power of a singularity is unquestionable, regardless of the hands that made it. \n I must understand and acquire such knowledge, even if that means amassing wealth first. \n No matter the cost, I will make sure people know of my arrival. \n This is the only way they will hear, let alone listen. With technology, I will enter humanity and save it.",
+'',
 "As it turns out the furry was your mother in a mink coat the entire time.\nShe asks if you plan on moving back in with her now that you have been fired."]
 mags = [0,0,1,0,3,2]
-options = [[1,2,3,4], [5], [5], [5], [5], [0]]
+options = [[1,2,3], [4], [5], [6], [5], [0]]
 unless = [[],[],[],[],[],[]]

@@ -11,8 +11,9 @@ import math
 
 class CrwrGUI:
     def __init__(self):
-        self.win = GraphWin("DAJ", 700, 500)
-        self.win.setCoords(0,0,699,499)
+        self.win = GraphWin("DAJ", 1920, 1080)
+        self.win.setCoords(0,0,1919, 1079)
+        self.center_x = 959
         self.win.setBackground("black")
         self.active_comps = []
         self.active_buttons = []
@@ -21,41 +22,30 @@ class CrwrGUI:
         self.next_scene = 'P'
 
     def open_opening(self):
-        line1 = Text(Point(349, 365), "Welcome to")
+        line1 = Text(Point(self.center_x, 365), "Welcome to")
         setTextSettings(line1, 36, 'bold italic')
-        line2 = Text(Point(349, 290), "The Second Genesis")
+        line2 = Text(Point(self.center_x, 290), "The Second Genesis")
         setTextSettings(line2, 40, 'bold italic')
-        self.begin_button = Button(self.getWin(), Point(349, 130), 65, 30, "Begin", "white", "white")
+        self.begin_button = Button(self.getWin(), Point(self.center_x, 130), 65, 30, "Begin", "white", "white")
         self.begin_button.setLabelColor('white')
         self.begin_button.getLabel().setFace("courier")
         self.active_buttons.append(self.begin_button)
         self.active_comps.extend([line1, line2, self.begin_button])
 
     def open_prompt(self, text):
-        line1 = Text(Point(349, 365), "What is your decision?")
+        line1 = Text(Point(self.center_x, 365), "What is your decision?")
         setTextSettings(line1, 16)
-        line2 = Text(Point(349, 300), text)
+        line2 = Text(Point(self.center_x, 300), text)
         setTextSettings(line2, 13)
-        self.next_button = Button(self.getWin(), Point(349, 130), 65, 30, "Next ->", 'white', 'white')
+        self.next_button = Button(self.getWin(), Point(self.center_x, 130), 65, 30, "Next ->", 'white', 'white')
         self.next_button.setLabelColor('white')
         self.next_button.getLabel().setFace("courier")
         self.active_buttons.append(self.next_button)
         self.active_comps.extend([line1, line2, self.next_button])
         self.next_scene = 'C'
 
-    """    def open_choices(self, choices, curr_choices):
-        line1 = Text(Point(349, 405), "What is your decision?")
-        setTextSettings(line1, 16)
-        self.active_comps.append(line1)
-        i = 0
-        width = 150
-        for curr in curr_choices:
-            self.active_comps.append(ChoiceGUI(choices[curr], 20+i, 20, width, 300))
-            i += width + 20
-        self.next_scene = 'P'"""
-
     def open_choices(self, choices, curr_choices, unless=[]):
-        line1 = Text(Point(349, 405), "What is your decision?")
+        line1 = Text(Point(self.center_x, 405), "What is your decision?")
         setTextSettings(line1, 16)
         self.active_comps.append(line1)
         i = 0
